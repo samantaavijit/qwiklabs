@@ -1,0 +1,21 @@
+Task 1: Set a default compute zone
+  gcloud config set compute/zone us-central1-a
+
+Task 2: Create a GKE cluster
+  gcloud container clusters create my-cluster
+  
+Task 3: Get authentication credentials for the cluster
+  gcloud container clusters get-credentials my-cluster
+  
+Task 4: Deploy an application to the cluster
+  kubectl create deployment hello-server --image=gcr.io/google-samples/hello-app:1.0
+  
+  kubectl expose deployment hello-server --type=LoadBalancer --port 8080
+  
+  kubectl get service
+  
+ ********************************http://[EXTERNAL-IP]:8080  **************************************************************************
+  
+  
+Task 5: Deleting the cluster
+  gcloud container clusters delete my-cluster
