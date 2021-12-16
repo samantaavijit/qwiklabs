@@ -1,2 +1,2 @@
-# qwicklabs
-All qwicklabs commands
+# qwiklabs
+All qwiklabs commands
