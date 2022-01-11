@@ -11,3 +11,6 @@ gcloud container clusters create security-demo-cluster371 \
    --enable-network-policy
    
 Task 2:
+gcloud sql instances create wordpress-db-383 --region us-central1
+Create database - wordpress
+Add user - wordpress (no password)
