@@ -14,3 +14,21 @@ Task 2:
 gcloud sql instances create wordpress-db-383 --region us-central1
 Create database - wordpress
 Add user - wordpress (no password)
+
+gcloud iam service-accounts create sa-wordpress-199
+
+gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
+   --member="serviceAccount:sa-wordpress-199@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com" \
+ --role="roles/cloudsql.client"
+
+ gcloud iam service-accounts keys create key.json --iam-account=sa-wordpress-199@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
+
+ kubectl create secret generic cloudsql-instance-credentials --from-file key.json
+
+ kubectl create secret generic cloudsql-db-credentials \
+ --from-literal username=wordpress \
+ --from-literal password=''
+ 
+ Task 3:
+ 
+
