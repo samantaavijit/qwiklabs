@@ -1,26 +1,19 @@
-Build and Secure Networks in Google Cloud: Challenge Lab
 
-*****************************************************************************************************************************************
-
-Task1: Remove the overly permissive rules
+Task1: 
 
 gcloud compute firewall-rules delete open-access
 
 *****************************************************************************************************************************************
 
-Task2: Start the bastion host instance
+Task2: 
 
 Go to Compute Engine and start Bastion instance just click 3 dot and click on start and resume option when available wait for green
 
-Task3: Create a firewall rule that allows SSH (tcp/22) from the IAP service and d
+Task3:
 
-*****************************************************************************************************************************************
+gcloud compute firewall-rules create SSH_IAP_NETWORK_TAG  --allow=tcp:22 --source-ranges 35.235.240.0/20 --target-tags ssh-ingress --network acme-vpc
 
-click edit and add network tag(ssh-ingress) on bastion instance
-
-gcloud compute firewall-rules create ssh-ingress --allow=tcp:22 --source-ranges 35.235.240.0/20 --target-tags ssh-ingress --network acme-vpc
-
-gcloud compute instances add-tags bastion --tags=ssh-ingress --zone=us-central1-b
+gcloud compute instances add-tags bastion --tags=SSH_IAP_NETWORK_TAG --zone=us-central1-b
 
 *****************************************************************************************************************************************
 
