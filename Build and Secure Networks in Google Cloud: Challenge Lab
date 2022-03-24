@@ -32,9 +32,9 @@ gcloud compute instances add-tags juice-shop --tags=HTTP_NETWORK_TAG --zone=us-c
 
 Task5: 
 
-gcloud compute firewall-rules create SSHINTERNAL_NETWORK_TAG --allow=tcp:22 --source-ranges 192.168.10.0/24 --target-tags SSHINTERNAL_NETWORK_TAG --network acme-vpc
+gcloud compute firewall-rules create SSH_INTERNAL_NETWORK_TAG --allow=tcp:22 --source-ranges 192.168.10.0/24 --target-tags SSH_INTERNAL_NETWORK_TAG --network acme-vpc
 
-gcloud compute instances add-tags juice-shop --tags=SSHINTERNAL_NETWORK_TAG --zone=us-central1-b
+gcloud compute instances add-tags juice-shop --tags=SSH_INTERNAL_NETWORK_TAG --zone=us-central1-b
 
 *****************************************************************************************************************************************
 
